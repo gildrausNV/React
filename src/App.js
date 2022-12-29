@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
+  const [openNum, setOpenNum] = useState(0);
+  const [FncSlopes, setFncSlopes] = useState([]);
   const [slopes, setSlopes] = useState([
     {
       id: 1,
@@ -32,11 +34,46 @@ function App() {
         open: 0,
     },
   ]);
+  function setSnow(id, snow){
+    console.warn(snow)
+    slopes.forEach((slope)=>{
+      if(slope.id === id){
+        slope.snow=snow;
+      }
+    })
+  }
+  function refrechFnc(){
+    let newSlopes = slopes.filter((slope)=>slope.open>0);
+    setFncSlopes(newSlopes);
+  }
+  function removeSlope(title, id){
+    slopes.forEach((slope)=>{
+      if(slope.id === id){
+        slope.open=0;
+        setOpenNum(openNum-1);
+      }
+    })
+    
+    refrechFnc()
+  }
+  function addSlope(title, id){
+    slopes.forEach((slope)=>{
+      if(slope.id === id){
+        if(slope.open === 0){
+          setOpenNum(openNum+1);
+        }
+        slope.open=1;
+        
+      }
+    })
+    
+    refrechFnc()
+  }
   return (<BrowserRouter className='App'>
-    <Navbar ></Navbar>
+    <Navbar openNum={openNum}></Navbar>
     <Routes>
-      <Route path='/' element={<Slopes slopes={slopes}/>}/>
-      <Route path='/FncSlope' element={<FncSlope slopes={slopes}/>} />
+      <Route path='/' element={<Slopes slopes={slopes} onAdd={addSlope} onRemove={removeSlope} onSet={setSnow}/>}/>
+      <Route path='/FncSlope' element={<FncSlope slopes={FncSlopes} onRemove={removeSlope}/>} />
     </Routes>
     <functioningSlopes/>
   </BrowserRouter>);
