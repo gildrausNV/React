@@ -1,25 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import Slopes from './components/Slopes';
+import FncSlope from './components/FncSlope';
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React TEST
-        </a>
-      </header>
-    </div>
-  );
+
+  return (<BrowserRouter className='App'>
+    <Navbar ></Navbar>
+    <Routes>
+      <Route path='/' element={<Slopes />}/>
+      <Route path='/FncSlope' element={<FncSlope />} />
+    </Routes>
+    <functioningSlopes/>
+  </BrowserRouter>);
 }
 
 export default App;
