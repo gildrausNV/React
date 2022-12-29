@@ -7,8 +7,12 @@ function OneSlope({slope, onAdd, inFnc, onRemove, onSet}) {
   }
   return (
     <div className="ski">
-        STRANICA ZA STAZU
+        <img className="slope-img" src="KaramanGreben.jpg" alt="" />
+        <div className="body">
+            <h3 className="title">{slope.title}</h3>
+            <p className="text">Difficulty: {slope.difficulty}</p>
     </div>
+    </div>  
   )
 }
 

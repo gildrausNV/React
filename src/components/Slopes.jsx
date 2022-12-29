@@ -6,7 +6,9 @@ const Slopes = ({slopes, onAdd, onRemove, onSet}) => {
     
   return (
     <div className='all-slopes'>
-        STRANICA ZA STAZE
+            {slopes.map((slope)=>(
+            <OneSlope slope={slope} key={slope.id} />
+        ))}
         <br></br>
   </div>
   )
