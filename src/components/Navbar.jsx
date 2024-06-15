@@ -5,10 +5,10 @@ function Navbar({ openNum }) {
   return (
     <div className="navBar">
       <Link to='/'><h1>Serbia Slopes</h1></Link>
-      <Link to='/FncSlope' className="ski-items">Open slopes
+      <Link to='/openSlopes' className="ski-items">Open slopes
         <p className='ski-num'>{openNum}</p>
       </Link>
-      <Link to='/AddSlope' className="ski-items">Add Slope</Link>
+      <Link to='/addSlope' className="ski-items">Add Slope</Link>
     </div>
   );
 }

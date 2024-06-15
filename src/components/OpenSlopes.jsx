@@ -1,7 +1,7 @@
 import React from 'react';
 import OneSlope from './OneSlope';
 
-const FncSlope = ({ slopes, onRemove }) => {
+const OpenSlopes = ({ slopes, onRemove }) => {
   return (
     <div className='all-slopes'>
       {slopes.map((slope) => (
@@ -11,4 +11,4 @@ const FncSlope = ({ slopes, onRemove }) => {
   );
 };
 
-export default FncSlope;
+export default OpenSlopes;

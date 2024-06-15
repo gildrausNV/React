@@ -1,7 +1,7 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import Slopes from './components/Slopes';
-import FncSlope from './components/FncSlope';
+import OpenSlopes from './components/OpenSlopes';
 import AddSlope from './components/AddSlope';
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
@@ -63,8 +63,8 @@ function App() {
       <Navbar openNum={openNum}></Navbar>
       <Routes>
         <Route path='/' element={<Slopes slopes={slopes} onAdd={addSlope} onRemove={removeSlope} onSet={setSnow} />} />
-        <Route path='/FncSlope' element={<FncSlope slopes={FncSlopes} onRemove={removeSlope} />} />
-        <Route path='/AddSlope' element={<AddSlope onAddSlope={onAddSlope} />} />
+        <Route path='/openSlopes' element={<OpenSlopes slopes={FncSlopes} onRemove={removeSlope} />} />
+        <Route path='/addSlope' element={<AddSlope onAddSlope={onAddSlope} />} />
       </Routes>
     </BrowserRouter>
   );
