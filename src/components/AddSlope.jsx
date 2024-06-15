@@ -18,7 +18,7 @@ const AddSlope = ({ onAddSlope }) => {
       <h2>Add New Slope</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Title:</label>
+          <label>Name:</label>
           <input
             type="text"
             value={title}
